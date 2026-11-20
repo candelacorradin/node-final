@@ -36,8 +36,8 @@ La **vista** en una API REST son las respuestas en formato JSON que reciben los 
 
 1. Clonar el repositorio:
    ```bash
-   git clone <url-del-repo>
-   cd api-biblioteca
+   git clone https://github.com/candelacorradin/node-final.git
+   cd node-final
    ```
 2. Instalar las dependencias:
    ```bash
