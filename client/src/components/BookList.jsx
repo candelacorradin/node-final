@@ -1,4 +1,3 @@
-// Lista de libros. No guarda estado: solo muestra lo que recibe por props.
 function BookList({ books, onEdit, onDelete }) {
   if (books.length === 0) {
     return <p className="empty">No hay libros</p>
@@ -6,7 +5,6 @@ function BookList({ books, onEdit, onDelete }) {
 
   return (
     <ul className="book-list">
-      {/* map: por cada libro, un <li>. La "key" ayuda a React a identificar cada elemento */}
       {books.map((book) => (
         <li key={book._id}>
           <div>

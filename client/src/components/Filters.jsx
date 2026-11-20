@@ -1,5 +1,3 @@
-// Filtros: cada cambio actualiza el estado "filters" de App,
-// y eso dispara el useEffect que vuelve a pedir los libros con ?author=...&genre=...
 function Filters({ filters, onChange }) {
   const handleChange = (event) => {
     onChange({ ...filters, [event.target.name]: event.target.value })

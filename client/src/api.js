@@ -1,10 +1,5 @@
-// Todas las llamadas a la API en un solo lugar.
-// La URL es relativa ("/books") porque en producción el front y la API
-// están en el mismo servidor, y en desarrollo el proxy de Vite la reenvía.
 const API_URL = '/books'
 
-// Hace el fetch y, si la API responde con error (400, 404, 500),
-// tira un Error con el mensaje que mandó la API.
 async function request(url, options) {
   const res = await fetch(url, options)
   const data = await res.json()

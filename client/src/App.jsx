@@ -4,14 +4,12 @@ import BookForm from './components/BookForm.jsx'
 import Filters from './components/Filters.jsx'
 import BookList from './components/BookList.jsx'
 
-// App es el componente "padre": guarda el estado y se lo pasa a los hijos por props.
 function App() {
-  const [books, setBooks] = useState([]) // los libros que vienen de la API
+  const [books, setBooks] = useState([])
   const [filters, setFilters] = useState({ author: '', genre: '', available: '' })
-  const [editing, setEditing] = useState(null) // libro que se está editando (o null)
-  const [message, setMessage] = useState(null) // { text, type: 'ok' | 'error' }
+  const [editing, setEditing] = useState(null)
+  const [message, setMessage] = useState(null)
 
-  // Pide los libros a la API, solo con los filtros que tienen valor
   const loadBooks = async () => {
     const activeFilters = Object.fromEntries(Object.entries(filters).filter(([, value]) => value !== ''))
     try {
@@ -21,12 +19,10 @@ function App() {
     }
   }
 
-  // useEffect: se ejecuta al cargar la página y cada vez que cambian los filtros
   useEffect(() => {
     loadBooks()
   }, [filters])
 
-  // Lo llama BookForm al enviar: crea (POST) o actualiza (PUT)
   const handleSave = async (book) => {
     try {
       if (editing) {
@@ -38,7 +34,7 @@ function App() {
       }
       setEditing(null)
       loadBooks()
-      return true // le avisa al formulario que salió bien para que se limpie
+      return true
     } catch (error) {
       setMessage({ text: error.message, type: 'error' })
       return false
