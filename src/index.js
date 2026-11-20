@@ -10,10 +10,9 @@ const PORT = process.env.PORT || 3000
 const server = express()
 server.use(express.json()) // permite leer el body en formato JSON
 
-// Ruta de bienvenida
-server.get("/", (req, res) => {
-  res.json({ message: "API Biblioteca funcionando 📚", endpoints: "/books" })
-})
+// FRONT: sirve la versión compilada del front de React (client/dist).
+// Esa carpeta se genera con "npm run build". Al entrar a http://localhost:3000/ se ve la app.
+server.use(express.static("client/dist"))
 
 // Toda petición que empiece con /books va al router de libros
 server.use("/books", bookRouter)

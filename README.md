@@ -11,9 +11,16 @@ Trabajo práctico final del curso de Node.js (UTN).
 - **MongoDB**: base de datos
 - **Mongoose**: modelado de datos y validaciones del esquema
 
+- **React + Vite**: frontend que consume la API
+
 ## Estructura del proyecto (MVC)
 
 ```
+client/                       # Frontend en React (consume la API)
+├── src/
+│   ├── api.js                # Funciones fetch hacia /books
+│   ├── App.jsx               # Componente principal (estado)
+│   └── components/           # BookForm, BookList, Filters
 src/
 ├── config/
 │   └── connectDb.js          # Conexión a MongoDB
@@ -47,11 +54,24 @@ La **vista** en una API REST son las respuestas en formato JSON que reciben los 
    ```bash
    cp .env.example .env
    ```
-4. Levantar el servidor:
+4. Compilar el frontend:
+   ```bash
+   npm run build
+   ```
+5. Levantar el servidor:
    ```bash
    npm run dev
    ```
-   El servidor queda en `http://localhost:3000`.
+   La app (front + API) queda en `http://localhost:3000`.
+
+Para trabajar en el front con recarga automática, con la API ya corriendo, en otra terminal:
+
+```bash
+cd client
+npm run dev
+```
+
+El front queda en `http://localhost:5173` y reenvía los pedidos a la API (proxy de Vite).
 
 > Requiere Node.js 22 o superior (las variables de entorno se cargan con el flag nativo `--env-file`).
 
