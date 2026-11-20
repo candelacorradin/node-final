@@ -4,6 +4,10 @@ API REST para gestionar los libros de una biblioteca. Permite crear, listar, bus
 
 Trabajo práctico final del curso de Node.js (UTN).
 
+🌐 **Deploy:** https://node-final-30s8.onrender.com (front) · https://node-final-30s8.onrender.com/books (API)
+
+> Está en el plan gratuito de Render: si estuvo inactiva, la primera carga puede tardar ~50 segundos.
+
 ## Tecnologías
 
 - **Node.js**: entorno para ejecutar JavaScript en el servidor
